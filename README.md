@@ -41,7 +41,7 @@ npm install
 
 ```
 MONGODB_URI=mongodb://localhost:27017/yourdbname
-PORT=3000
+PORT=4000
 ```
 
 5. **Run the application**:

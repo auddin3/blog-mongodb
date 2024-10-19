@@ -1,5 +1,4 @@
-const connectToDatabase = require('../scripts/database').connectToDatabase;
-const closeDatabase = require('../scripts/database').closeDatabase;
+const { connectToDatabase, closeDatabase } = require('../scripts/database')
 const Post = require('../models/post');
 const Author = require('../models/author');
 
@@ -12,14 +11,6 @@ const getAuthors = async () => {
         throw error;
     }
 };
-
-async function initializeDatabase() {
-    await connectToDatabase();
-}
-
-async function clearPostsTable() {
-    await Post.deleteMany({});
-}
 
 async function seedPosts(authors) {
     const PostData = [
@@ -58,8 +49,8 @@ async function seedPosts(authors) {
 
 async function addPosts() {
     try {
-        await initializeDatabase();
-        await clearPostsTable();
+        await connectToDatabase();
+        await Post.deleteMany({});
         
         const authors = await getAuthors();
         const seededPosts = await seedPosts(authors);

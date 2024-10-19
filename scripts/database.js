@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-let database;
+require('dotenv').config();
 
-async function connect() {
+async function connectToDatabase() {
     try {
-        const connection = await mongoose.connect('mongodb://127.0.0.1:27017/blog');
-        
-        database = mongoose.connection;  
+        const connectionString = process.env.MONGODB_URI;
+        await mongoose.connect(connectionString);
         console.log('Connected to MongoDB');
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
@@ -14,18 +13,23 @@ async function connect() {
 }
 
 function getDb() {
-    if (!database || database.readyState !== 1) {
-        throw { message: 'Database connection not established!' };
+    const db = mongoose.connection;
+    if (!db || db.readyState !== 1) {
+        throw new Error('Database connection not established!');
     }
-    return database;
+    return db; 
 }
 
 function closeDatabase() {
-    if (database) mongoose.connection.close()
+    const db = mongoose.connection;
+    if (db) {
+        db.close();
+        console.log('Database connection closed');
+    }
 }
 
 module.exports = {
-    connectToDatabase: connect,
+    connectToDatabase,
     getDb,
     closeDatabase
 };

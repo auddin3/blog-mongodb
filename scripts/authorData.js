@@ -1,14 +1,5 @@
-const connectToDatabase = require('../scripts/database').connectToDatabase
-const closeDatabase = require('../scripts/database').closeDatabase;
+const { connectToDatabase, closeDatabase } = require('../scripts/database')
 const Author = require('../models/author');
-
-async function initializeDatabase() {
-    await connectToDatabase();
-}
-
-async function clearAuthorsTable() {
-    await Author.deleteMany({});
-}
 
 async function seedAuthors() {
   const AuthorData = [
@@ -51,8 +42,9 @@ async function seedAuthors() {
 
 async function addAuthors() {
   try {
-    await initializeDatabase();
-    await clearAuthorsTable();
+    await connectToDatabase();
+    await Author.deleteMany({});
+    
     const seededAuthors = await seedAuthors();
     console.log('Users seeded successfully:', seededAuthors);
   } catch (error) {

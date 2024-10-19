@@ -1,8 +1,8 @@
-# Tech-Blog
+# Tech Blog
 
 ## Description
 
-Welcome to the Blog-MongoDB repository! This project showcases a blog site built using MongoDB as the primary database. The application allows users to create, read, update, and delete blog posts, making it a fully functional blogging platform. The project is designed to demonstrate the capabilities of MongoDB in a real-world application.
+Welcome to the Tech Blog repository! This project showcases a blog site built using MongoDB as the primary database. The application allows users to create, read, update, and delete blog posts, making it a fully functional blogging platform. The project is designed to demonstrate the capabilities of MongoDB in a real-world application.
 
 ## Features
 

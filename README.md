@@ -24,20 +24,18 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
 ```
-git clone https://github.com/yourusername/blog-mongodb.git
-cd blog-mongodb
+git clone https://github.com/yourusername/tech-blog.git
+cd tech-blog
 ```
 
 2. **Install dependencies: Make sure you have Node.js installed. Then run:**
 ```
-Copy code
 npm install
 ```
 
 3. **Set up MongoDB**:
 
   Make sure MongoDB is installed and running on your machine.
-  Create a database for the blog or use a cloud service like MongoDB Atlas.
 
 4. **Environment Variables: Create a .env file in the root directory and add the following**:
 
@@ -52,4 +50,4 @@ PORT=3000
 npm start
 ```
 
-Your application should now be running at http://localhost:3000.
+Your application should now be running at http://localhost:3000 with pre-populated data.

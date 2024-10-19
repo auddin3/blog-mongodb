@@ -1,4 +1,4 @@
-# Blog-MongoDB
+# Tech-Blog
 
 ## Description
 
@@ -40,7 +40,7 @@ npm install
 4. **Environment Variables: Create a .env file in the root directory and add the following**:
 
 ```
-MONGODB_URI=mongodb://localhost:27017/yourdbname
+MONGODB_URI=mongodb://localhost:27017/tech-blog
 PORT=4000
 ```
 
